@@ -324,47 +324,51 @@
   
     <div class="mat-elevation-z8">
   
-        <!--
+        
       <mat-form-field>
         <mat-label>Filter</mat-label>
         <input matInput placeholder="Filter" (keyup)="Filterchange($event)">
   
       </mat-form-field>
   
-
-    -->  
     <table mat-table [dataSource]="dataSource" >
   
       <!--- Note that these columns can be defined in any order.
             The actual rendered columns are set as a property on the row definition" -->
     
       <!-- Position Column -->
-      <ng-container matColumnDef="code">
+      <ng-container matColumnDef="id">
         <th mat-header-cell mat-sort-header *matHeaderCellDef> ID </th>
         <td mat-cell *matCellDef="let element"> {{element.id}} </td>
       </ng-container>
     
       <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-sort-header mat-header-cell *matHeaderCellDef> Username </th>
-        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+      <ng-container matColumnDef="nombre">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
       </ng-container>
     
       <!-- Weight Column -->
+      <ng-container matColumnDef="apellido">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef> Apellido </th>
+        <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
+      </ng-container>
+
       <ng-container matColumnDef="email">
         <th mat-sort-header mat-header-cell *matHeaderCellDef> Email </th>
         <td mat-cell *matCellDef="let element"> {{element.email}} </td>
       </ng-container>
     
+    
       <!-- Symbol Column -->
-      <ng-container matColumnDef="phone">
-        <th mat-header-cell *matHeaderCellDef> phone </th>
-        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+      <ng-container matColumnDef="username">
+        <th mat-header-cell mat-header-cell *matHeaderCellDef> Username </th>
+        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
       </ng-container>
   
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action </th>
-        <td mat-cell *matCellDef="let element"> <button (click)="FunctionEdit(element.code)" mat-raised-button color="primary" >Edit</button> | 
+        <td mat-cell *matCellDef="let element"> <button (click)="FunctionEdit(element.id)" mat-raised-button color="primary" >Edit</button> | 
           <button mat-raised-button color="warn" (click)="FunctionDelete(element.code)">Delete</button>
         </td>
       </ng-container>
@@ -375,13 +379,5 @@
       
   </div>
   </div>
-  
-  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-  <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-  <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-  <!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-  <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
   
   <router-outlet></router-outlet>

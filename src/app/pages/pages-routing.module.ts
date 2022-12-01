@@ -5,13 +5,15 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ProductosComponent } from './productos/productos.component';
+import { GraficasComponent } from './graficas/graficas.component';
 
 const routes:Routes=[
   {path:'dashboard', component:PagesComponent,
   children:[
     {path:'', component:DashboardComponent}, 
     {path:'usuarios', component:UsuariosComponent},
-    {path:'productos', component:ProductosComponent}
+    {path:'productos', component:ProductosComponent},
+    {path:'graficas', component:GraficasComponent}
   ]
 }
 ]

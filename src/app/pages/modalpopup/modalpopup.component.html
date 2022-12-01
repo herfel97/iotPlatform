@@ -1,1 +1,37 @@
-<p>modalpopup works!</p>
+<h1 mat-dialog-title>Usuarios</h1>
+<form [formGroup]="Reactiveform" (ngSubmit)="SaveEmployee()">
+    <div mat-dialog-content>
+        <mat-form-field>
+            <mat-label>ID</mat-label>
+            <input placeholder="Code" matInput formControlName="id">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>NOMBRE</mat-label>
+            <input placeholder="Name" matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>APELLIDO</mat-label>
+            <input placeholder="Email" matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>USUARIO</mat-label>
+            <input placeholder="Username" matInput formControlName="username">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>CLAVE</mat-label>
+            <input type="password" placeholder="Clave" matInput formControlName="clave">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>ROL</mat-label>
+           <mat-select formControlName="rol">
+            <mat-option value="ADMIN">ADMINISTRADOR </mat-option>
+            <mat-option value="USER" >USUARIO</mat-option>
+           </mat-select>
+        </mat-form-field>
+ 
+    </div>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+      <button type="submit" mat-raised-button color="primary" cdkFocusInitial>Save</button>
+    </div>
+</form>

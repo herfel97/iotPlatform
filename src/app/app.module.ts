@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NgProbeToken } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -10,8 +10,9 @@ import { PagesModule } from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http'
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -19,16 +20,17 @@ import { MatTableModule } from '@angular/material/table';
     NopageFoundComponent
   ],
   imports: [
+    MatFormFieldModule,
     MatTableModule,
     MatDialogModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    PagesModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

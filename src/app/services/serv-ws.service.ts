@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable,Subject, tap } from 'rxjs';
 import { ResponseI } from '../model/response.interface';
 import { restauranteI } from '../model/restaurant.interface';
 import { clienteI } from "../model/cliente.interface";
@@ -15,6 +15,15 @@ export class ServWSService {
   errorMessage:any;
 
   constructor(private http:HttpClient) { }
+
+
+  apiurl = 'http://52.55.68.3:44269/usuarios';
+  private _refreshrequired=new Subject<void>();
+
+  get RequiredRefresh(){
+    return this._refreshrequired;
+  }
+
 
 getRestaurantes (){
   return this.http.get('http://localhost:8080/MorochoArevalo-Hernan-Examen/rest/restaurant/list')
@@ -42,6 +51,10 @@ getClientes(): Observable<any>{
   return this.http.get<any>('http://54.174.96.26:8090/api/usuarios/usuarios');
 }
 
+GetUserbycode(code:any){
+  return this.http.get('http://52.55.68.3:44269/usuarios/'+code);
+}
+
 registrarCliente(form:clienteI): Observable<any>{
   const body = new HttpParams()
   .set('nombre', form.nombre.toUpperCase())
@@ -54,6 +67,14 @@ registrarCliente(form:clienteI): Observable<any>{
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
   }
 );
+}
+
+Save(inputdata:any){
+  return this.http.post(this.apiurl,inputdata).pipe(
+    tap(()=>{
+this.RequiredRefresh.next();
+    })
+  );
 }
 
 buscarCliente(cedula:any):Observable<any>{

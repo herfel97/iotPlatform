@@ -17,7 +17,7 @@ export class UsuariosComponent implements OnInit {
 
   title = 'app1';
 
-  displayedColumns: string[] = ['code', 'name', 'phone', 'email', 'action'];
+  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'email', 'username', 'action'];
   dataSource: any;
   empdata: any;
 
@@ -39,7 +39,6 @@ GetAll() {
     this.dataSource = new MatTableDataSource<any>(this.empdata)
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    console.log(this.empdata);
   });
 }
 
@@ -50,6 +49,11 @@ getrow(row: any) {
 
 FunctionEdit(code: any) {
   this.OpenDialog('1000ms','600ms',code)
+}
+
+Filterchange(event: Event) {
+  const filvalue = (event.target as HTMLInputElement).value;
+  this.dataSource.filter = filvalue;
 }
 
 FunctionDelete(code: any) {

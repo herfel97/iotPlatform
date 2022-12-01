@@ -9,6 +9,7 @@ import { MatDialogModule } from "@angular/material/dialog"
 import { MatSelectModule } from "@angular/material/select"
 import { MatRadioModule } from "@angular/material/radio"
 import { MatCheckboxModule } from "@angular/material/checkbox"
+import { MatOption, MatOptionModule } from "@angular/material/core";
 
 @NgModule({
     exports:[
