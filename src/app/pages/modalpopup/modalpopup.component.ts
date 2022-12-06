@@ -18,6 +18,7 @@ export class ModalpopupComponent implements OnInit {
   desdata: any;
   respdata: any;
   editdata: any;
+  id: any; 
 
   ngOnInit(): void {
     this.loadDes();
@@ -35,7 +36,7 @@ this.LoadEditData(this.data.empcode);
   LoadEditData(code: any) {
    this.service.GetUserbycode(code).subscribe(item => {
         this.editdata = item;
-        this.Reactiveform.setValue({id:this.editdata.id,name:this.editdata.nombre,email:this.editdata.email,
+        this.Reactiveform.setValue({id:this.editdata.id,nombre:this.editdata.nombre,email:this.editdata.email,
          username:this.editdata.username,clave:this.editdata.password,rol:this.editdata.roles[0].nombre
         })
     });
@@ -44,7 +45,7 @@ this.LoadEditData(this.data.empcode);
 
   Reactiveform = new FormGroup({
     id: new FormControl({ value: 0, disabled: true }),
-    name: new FormControl("", Validators.required),
+    nombre: new FormControl("", Validators.required),
     email: new FormControl("", Validators.required),
     username: new FormControl("", Validators.required),
     clave: new FormControl("", Validators.required),
@@ -52,18 +53,22 @@ this.LoadEditData(this.data.empcode);
   });
 
   SaveEmployee() {
+   
     if (this.Reactiveform.valid) {
-      this.service.Save(this.Reactiveform.value.name).subscribe(result => {
+
+      this.service.Save(this.Reactiveform.value).subscribe(result => {
         this.respdata = result;
+        console.log(this.respdata);
         if (this.respdata.result == 'pass') {
+
          // alertify.success("saved successfully.")
           this.dialogref.close();
         }
      });
-     console.log(this.respdata);
     } else {
       //alertify.error("Please Enter valid data")
     }
   }
+
 
 }
