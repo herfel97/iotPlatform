@@ -7,11 +7,11 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'app-usuarios',
-  templateUrl: './usuarios.component.html',
-  styleUrls: ['./usuarios.component.css']
+  selector: 'app-management-devices',
+  templateUrl: './management-devices.component.html',
+  styleUrls: ['./management-devices.component.css']
 })
-export class UsuariosComponent implements OnInit {
+export class ManagementDevicesComponent {
 
   title = 'app1';
 
@@ -80,3 +80,4 @@ FunctionDelete(code: any) {
   }
 
 }
+

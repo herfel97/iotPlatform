@@ -19,6 +19,7 @@ import { ChartSectionComponent } from './chart-section/chart-section.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomSocketService } from './custom-socket.service';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+import { ManagementDevicesComponent } from './management-devices/management-devices.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -31,6 +32,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     ModalpopupComponent,
     GraficasComponent,
     ChartSectionComponent,
+    ManagementDevicesComponent,
   ],
   imports: [
     MatInputModule,

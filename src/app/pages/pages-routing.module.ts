@@ -7,6 +7,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ProductosComponent } from './productos/productos.component';
 import { GraficasComponent } from './graficas/graficas.component';
 import { ChartSectionComponent } from './chart-section/chart-section.component';
+import { ManagementDevicesComponent } from './management-devices/management-devices.component';
 
 const routes:Routes=[
   {path:'dashboard', component:PagesComponent,
@@ -15,7 +16,8 @@ const routes:Routes=[
     {path:'usuarios', component:UsuariosComponent},
     {path:'productos', component:ProductosComponent},
     {path:'graficas', component:GraficasComponent},
-    {path:'graf',component:ChartSectionComponent}
+    {path:'graf',component:ChartSectionComponent},
+    {path:'devices',component:ManagementDevicesComponent}
   ]
 }
 ]
