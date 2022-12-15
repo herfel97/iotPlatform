@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { ModalpopupComponent } from './modalpopup/modalpopup.component';
 import { MatOption } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomSocketService } from './custom-socket.service';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { ManagementDevicesComponent } from './management-devices/management-devices.component';
+import { LoginComponent } from './login/login.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
@@ -33,6 +34,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     GraficasComponent,
     ChartSectionComponent,
     ManagementDevicesComponent,
+    LoginComponent
   ],
   imports: [
     MatInputModule,
@@ -45,7 +47,9 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     SharedModule,
     NgxChartsModule,
     BrowserAnimationsModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    FormsModule
+    
   ],
   exports: [
     MatFormFieldModule,

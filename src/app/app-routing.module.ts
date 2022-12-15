@@ -9,6 +9,7 @@ import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 
 
 const routes:Routes=[
+  {path: "", redirectTo: "login", pathMatch: "full"},
   {path: '',component:DashboardComponent},
   {path:'', redirectTo:'/login', pathMatch:'full'},
   {path:'usuarios', component:UsuariosComponent},

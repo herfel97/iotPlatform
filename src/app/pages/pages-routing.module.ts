@@ -8,6 +8,7 @@ import { ProductosComponent } from './productos/productos.component';
 import { GraficasComponent } from './graficas/graficas.component';
 import { ChartSectionComponent } from './chart-section/chart-section.component';
 import { ManagementDevicesComponent } from './management-devices/management-devices.component';
+import { LoginComponent } from './login/login.component';
 
 const routes:Routes=[
   {path:'dashboard', component:PagesComponent,
@@ -19,7 +20,8 @@ const routes:Routes=[
     {path:'graf',component:ChartSectionComponent},
     {path:'devices',component:ManagementDevicesComponent}
   ]
-}
+},
+{path:'login', component: LoginComponent}
 ]
 
 
